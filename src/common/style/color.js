@@ -20,7 +20,9 @@ let Colors = {
   aaa: '#aaa',
   ccc: '#ccc',
   eee: '#eee',
-  fff: '#fff'
+  fff: '#fff',
+
+  mBlue: 'rgb(83, 125, 247)'
 }
 
 export default Colors

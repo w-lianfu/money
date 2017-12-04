@@ -52,7 +52,7 @@ let HomeTab = TabNavigator({
   tabBarPosition: 'bottom',
   animationEnabled: true,
   tabBarOptions: {
-    activeTintColor: Colors.c333,
+    activeTintColor: Colors.black,
     inactiveTintColor: Colors.c999,
     style: {
       backgroundColor: Colors.white,
