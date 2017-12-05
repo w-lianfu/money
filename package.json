@@ -31,6 +31,8 @@
     "react-native": "0.50.3",
     "react-native-elements": "^0.18.4",
     "react-native-navigation": "^1.1.298",
+    "react-native-snap-carousel": "^3.4.0",
+    "react-native-swiper": "^1.5.13",
     "react-native-vector-icons": "^4.4.2",
     "react-navigation": "^1.0.0-beta.21",
     "rxjs": "^5.5.2",
