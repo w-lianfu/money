@@ -45,11 +45,33 @@ let CarouselBox = LinkView.extend`
   height: ${props => props.height ? props.height : 60};
 `
 
+let TextStyled = styled.Text`
+  font-size: ${props => props.size ? props.size : 14};
+  color: ${props => props.color ? props.color : Colors.black};
+  font-weight: ${props => props.weight ? props.weight : 400};
+`
+
+let BottomText = TextStyled.extend`
+  position: absolute;
+  bottom: 0;
+`
+
+let BgText = BottomText.extend `
+  paddingTop: 5;
+  paddingBottom: 5;
+  paddingLeft: 5;
+  paddingRight: 5;
+  background-color: ${props => props.bgColor ? props.bgColor : Colors.white};
+`
+
 export {
   PageScrollView,
   PageView,
   LinkView,
   ContentView,
   CarouselView,
-  CarouselBox
+  CarouselBox,
+  TextStyled,
+  BottomText,
+  BgText
 }

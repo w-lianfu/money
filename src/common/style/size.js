@@ -19,6 +19,8 @@ let Size = {
   size95: 95,
   size100: 100,
 
+  size26: 26,
+
   font10: 10,
   font11: 11,
   font12: 12,

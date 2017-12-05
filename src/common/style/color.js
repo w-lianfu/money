@@ -23,11 +23,12 @@ let Colors = {
   fff: '#fff',
 
   mBlue: 'rgb(83, 125, 247)',
-  mGreen: 'rgb(83, 189, 202)',
-  mRed: 'rgb(232, 100, 85)',
   mBlue5: 'rgba(83, 125, 247, .5)',
+  mGreen: 'rgb(83, 189, 202)',
   mGreen5: 'rgba(83, 189, 202, .5)',
-  mRed5: 'rgba(232, 100, 85, .5)'
+  mRed: 'rgb(232, 100, 85)',
+  mRed5: 'rgba(232, 100, 85, .5)',
+  lightOrange: 'rgb(254, 242, 234)'
 }
 
 export default Colors
