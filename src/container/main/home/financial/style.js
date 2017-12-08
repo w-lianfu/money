@@ -32,6 +32,7 @@ let FinancialStyle = StyleSheet.create({
   },
   ListRight: {
     display: 'flex',
+    alignItems: 'flex-end',
     justifyContent: 'space-between'
   }
 })

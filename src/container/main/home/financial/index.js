@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Text, TouchableHighlight, Image } from 'react-native'
+import { View, ScrollView, Text, TouchableHighlight, Image, Button } from 'react-native'
 import Swiper from 'react-native-swiper'
+import { observer } from 'mobx-react'
 
+import FinancialStore from './store'
 import {
   PageScrollView, PageView, LinkView, ContentView, CarouselView,
   CarouselBox, TextStyled, BgText, BottomText
@@ -11,9 +13,16 @@ import FinancialStyle from './style'
 import Colors from '../../../../common/style/color'
 import Size from '../../../../common/style/size'
 
+let store = new FinancialStore()
+
+@observer
 class Financial extends Component {
   constructor(props) {
     super(props)
+  }
+
+  componentDidMount () {
+    store.getListData()
   }
 
   _toLogin = () => {
@@ -21,37 +30,8 @@ class Financial extends Component {
   }
 
   render() {
-    let data = [
-      {
-        id: 1,
-        imgName: 'icon01.png',
-        contentId: 101,
-        title: '工银小白',
-        subTitle: '活期 首次转入+2%收益',
-        rate: '4.0%+2%',
-        rateText: '7日年化收益率'
-      },
-      {
-        id: 2,
-        imgName: 'icon01.png',
-        contentId: 102,
-        title: '定期理财',
-        subTitle: '小白理财 最高年化5.8%',
-        rate: '4.3%～5.8%',
-        rateText: '多种投资期限可选'
-      },
-      {
-        id: 3,
-        imgName: 'icon01.png',
-        contentId: 103,
-        title: '基金',
-        subTitle: '小白基金 加送7天3%',
-        rate: '10元起投',
-        rateText: '全场1折起'
-      }
-    ]
-
-    let list = data.map((item, index) => (
+    console.log('render...')
+    let list = store.listData && store.listData.map((item, index) => (
       <ListView onPress={this._toLogin} underlayColor={Colors.white} key={index}>
       <View style={FinancialStyle.ListRow}>
         <View style={FinancialStyle.IconView}>
@@ -63,7 +43,7 @@ class Financial extends Component {
           <BottomText size={Size.font15} color={Colors.gray} margin={0}>{item.subTitle}</BottomText>
         </View>
         <View style={FinancialStyle.ListRight}>
-          <TextStyled size={Size.font20} color={Colors.orangered}>{item.rate}</TextStyled>
+          <TextStyled size={Size.font18} color={Colors.orangered}>{item.rate}</TextStyled>
           <TextStyled size={Size.font15} color={Colors.gray}>{item.rateText}</TextStyled>
         </View>
       </View>
@@ -93,25 +73,9 @@ class Financial extends Component {
           </Swiper>
           <ContentView bgColor='red'>
             {list}
-
-            {/* <ListView onPress={this._toLogin} underlayColor={Colors.white}>
-              <View style={FinancialStyle.ListRow}>
-                <View style={FinancialStyle.IconView}>
-                  <Image source={require('../../../../image/icon/icon01.png')}
-                    style={FinancialStyle.IconImage} />
-                </View>
-                <View style={FinancialStyle.ListContent}>
-                  <TextStyled size={Size.font19} weight={500}>京东小金库</TextStyled>
-                  <BottomText size={Size.font15} color={Colors.gray} margin={0}>活期 首次转入+2%收益</BottomText>
-                </View>
-                <View style={FinancialStyle.ListRight}>
-                  <TextStyled size={Size.font20} color={Colors.orangered}>4.0%+2%</TextStyled>
-                  <TextStyled size={Size.font15} color={Colors.gray}>7日年化收益率</TextStyled>
-                </View>
-              </View>
-            </ListView> */}
-
           </ContentView>
+          <Text>{store.num}</Text>
+          <Button title='Num' onPress={store.increment} />
         </PageView>
       </PageScrollView>
     )
