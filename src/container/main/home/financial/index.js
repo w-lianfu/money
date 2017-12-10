@@ -30,7 +30,6 @@ class Financial extends Component {
   }
 
   render() {
-    console.log('render...')
     let list = store.listData && store.listData.map((item, index) => (
       <ListView onPress={this._toLogin} underlayColor={Colors.white} key={index}>
       <View style={FinancialStyle.ListRow}>
