@@ -12,6 +12,7 @@ import { ListView } from '../styled'
 import FinancialStyle from './style'
 import Colors from '../../../../common/style/color'
 import Size from '../../../../common/style/size'
+import { IMG_HOST } from '../../../../common/module/fetch'
 
 let store = new FinancialStore()
 
@@ -34,7 +35,7 @@ class Financial extends Component {
       <ListView onPress={this._toLogin} underlayColor={Colors.white} key={index}>
       <View style={FinancialStyle.ListRow}>
         <View style={FinancialStyle.IconView}>
-          <Image source={require('../../../../image/icon/icon01.png')}
+          <Image source={{uri: IMG_HOST + item.imgUrl}}
             style={FinancialStyle.IconImage} />
         </View>
         <View style={FinancialStyle.ListContent}>
@@ -42,8 +43,8 @@ class Financial extends Component {
           <BottomText size={Size.font15} color={Colors.gray} margin={0}>{item.subTitle}</BottomText>
         </View>
         <View style={FinancialStyle.ListRight}>
-          <TextStyled size={Size.font18} color={Colors.orangered}>{item.rate}</TextStyled>
-          <TextStyled size={Size.font15} color={Colors.gray}>{item.rateText}</TextStyled>
+          <TextStyled size={Size.font18} color={Colors.orangered}>{item.income}</TextStyled>
+          <TextStyled size={Size.font15} color={Colors.gray}>{item.incomeTitle}</TextStyled>
         </View>
       </View>
     </ListView>
@@ -55,7 +56,7 @@ class Financial extends Component {
           <CarouselView>
             <Text>hello</Text>
           </CarouselView>
-          <Swiper autoplay={true} showsPagination={false}
+          <Swiper autoplay={true} showsPagination={false} autoplayTimeout={1.0}
             style={{height: Size.size60, marginTop: 10, marginBottom: 10}}>
             <CarouselBox bgColor={Colors.mBlue5} underlayColor={Colors.mBlue5}
               height={Size.size60} onPress={this._toLogin}>

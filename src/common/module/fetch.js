@@ -1,4 +1,5 @@
 let HOST = 'http://127.0.0.1:3000/'
+let IMG_HOST = HOST + 'images/'
 
 let defaultOptions = {
   method: 'GET',
@@ -34,4 +35,8 @@ Fetch.get = (url, cb) => {
 }
 */
 
-export default Fetch
+export {
+  HOST,
+  IMG_HOST,
+  Fetch
+}

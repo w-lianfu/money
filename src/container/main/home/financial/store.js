@@ -1,6 +1,6 @@
 import { observable, computed, action, runInAction } from 'mobx'
 
-import Fetch from '../../../../common/module/fetch'
+import { Fetch } from '../../../../common/module/fetch'
 
 class FinancialStore {
   @observable num = 0
